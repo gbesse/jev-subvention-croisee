@@ -2,7 +2,7 @@
 
 **Détecte les recouvrements possibles entre subventions attribuées à un même projet.**
 
-[![Tests](https://github.com/gbesse/jev-subvention-croisee/actions/workflows/test.yml/badge.svg)](https://github.com/gbesse/jev-subvention-croisee/actions/workflows/test.yml) [MIT](LICENSE) · Node.js 22+ · v0.1.0 · Documentation française
+[![Tests](https://github.com/gbesse/jev-subvention-croisee/actions/workflows/test.yml/badge.svg)](https://github.com/gbesse/jev-subvention-croisee/actions/workflows/test.yml) [MIT](LICENSE) · Node.js 22+ · v0.1.1 · Documentation française
 
 Jev Subvention Croisée transforme un paire de subventions sourcé en une catégorie explicite et révisable. Le dépôt sépare les règles vérifiables en code de la comparaison sémantique confiée à Jev.
 
@@ -15,7 +15,7 @@ npm install
 npm run demo
 ```
 
-Les deux démonstrations utilisent uniquement des données et probabilités synthétiques. Elles n’effectuent aucun appel réseau et ne mesurent pas la qualité réelle de Jev.
+Les trois démonstrations utilisent uniquement des données et probabilités synthétiques. Elles n’effectuent aucun appel réseau et ne mesurent pas la qualité réelle de Jev.
 
 ## Exemple exécutable
 
@@ -66,7 +66,17 @@ Le fichier complet est [`examples/demo.mjs`](examples/demo.mjs). Lancez-le avec 
 npm run demo:limite
 ```
 
-`npm run demo` exécute les deux scénarios.
+`npm run demo` exécute les trois scénarios.
+
+### Décision incertaine à revoir
+
+[`examples/revue-humaine.mjs`](examples/revue-humaine.mjs) simule un dossier incomplet. Une confiance de `0.62` doit produire `review: true` afin que l’incertitude reste visible et qu’aucune action automatique ne soit déclenchée.
+
+```sh
+npm run demo:revue
+```
+
+Résultat attendu : **`chevauchement_possible`**, avec `revue humaine : true`.
 
 ## Frontière de décision
 
